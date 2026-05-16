@@ -80,8 +80,15 @@ function AnimatedGroup({ objectDistance }: { objectDistance: number }) {
 
 export default function ShadowScene({ lightSize, objectDistance }: ShadowSceneProps) {
   return (
-    <div className="w-full h-full rounded-2xl overflow-hidden bg-slate-900 border-2 border-slate-700 shadow-2xl relative">
-      <Canvas shadows camera={{ position: [-8, 6, 8], fov: 45 }}>
+    <div className="w-full h-full rounded-2xl overflow-hidden bg-slate-900 border-2 border-slate-700 shadow-2xl relative group">
+      <Canvas 
+        shadows 
+        camera={{ 
+          position: window.innerWidth < 768 ? [-12, 8, 12] : [-8, 6, 8], 
+          fov: window.innerWidth < 768 ? 50 : 45 
+        }}
+        dpr={[1, 2]} // Better performance on mobile
+      >
         {/* Ambient light so things aren't pitch black, but very low to keep shadows strong */}
         <ambientLight intensity={0.1} />
         
@@ -106,10 +113,10 @@ export default function ShadowScene({ lightSize, objectDistance }: ShadowScenePr
           minPolarAngle={Math.PI / 4} 
           maxPolarAngle={Math.PI / 2}
           minDistance={10}
-          maxDistance={25}
+          maxDistance={30}
         />
       </Canvas>
-      <div className="absolute top-4 right-4 pointer-events-none text-white/50 text-sm">
+      <div className="absolute top-4 right-4 pointer-events-none text-white/50 text-xs sm:text-sm bg-black/20 px-2 py-1 rounded-md backdrop-blur-sm">
         اسحب الشاشة للتدوير ↻
       </div>
     </div>

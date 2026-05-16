@@ -163,20 +163,20 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col pt-6 pb-12 px-4 sm:px-8 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col pt-4 pb-8 px-4 sm:px-8 relative">
       {/* Onboarding Overlay */}
       {showOnboarding && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="bg-slate-900 border border-slate-700 w-full max-w-md rounded-3xl p-8 shadow-2xl flex flex-col items-center text-center gap-6 relative">
+          <div className="bg-slate-900 border border-slate-700 w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center gap-6 relative max-h-[90vh] overflow-y-auto">
             <div className="animate-pulse">
               {onboardingData[onboardingStep].icon}
             </div>
             
             <div className="space-y-3">
-              <h2 className="text-2xl font-extrabold text-white">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-white">
                 {onboardingData[onboardingStep].title}
               </h2>
-              <p className="text-slate-400 leading-relaxed text-lg">
+              <p className="text-slate-400 leading-relaxed text-base sm:text-lg">
                 {onboardingData[onboardingStep].text}
               </p>
             </div>
@@ -192,11 +192,9 @@ export default function App() {
 
             <button
               onClick={() => {
-                console.log("Onboarding step clicked:", onboardingStep);
                 if (onboardingStep < onboardingData.length - 1) {
                   setOnboardingStep(prev => prev + 1);
                 } else {
-                  console.log("Finishing onboarding");
                   setShowOnboarding(false);
                 }
               }}
@@ -209,25 +207,25 @@ export default function App() {
       )}
 
       {/* Header section */}
-      <header className="max-w-6xl mx-auto w-full mb-8 text-center sm:text-right">
-        <div className="inline-flex items-center justify-center sm:justify-start gap-3 mb-2">
-          <div className="p-3 bg-indigo-500/20 rounded-xl">
-            <Lightbulb className="w-8 h-8 text-indigo-400" />
+      <header className="max-w-6xl mx-auto w-full mb-4 sm:mb-6 text-center md:text-right landscape:mb-2">
+        <div className="inline-flex items-center justify-center md:justify-start gap-3 mb-1">
+          <div className="p-2 bg-indigo-500/20 rounded-xl landscape:p-1">
+            <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-400 landscape:w-5 landscape:h-5" />
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">
+          <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300 landscape:text-lg">
             مختبر الظلال التفاعلي
           </h1>
         </div>
-        <p className="text-slate-400 text-lg mt-2 font-medium">
+        <p className="text-slate-400 text-xs sm:text-lg font-medium landscape:hidden">
           اكتشف كيف يتكون الظل! حرّك المقابض للتحكم في الضوء والجسم.
         </p>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row gap-8 flex-1">
+      <main className="max-w-7xl mx-auto w-full flex flex-col md:flex-row landscape:flex-row gap-4 sm:gap-6 lg:gap-8 flex-1 min-h-0">
         
         {/* 3D Scene Container */}
-        <section className="flex-1 min-h-[500px] lg:min-h-0 order-2 lg:order-1 relative">
+        <section className="w-full md:flex-1 landscape:flex-1 h-[40vh] min-h-[300px] md:h-auto landscape:h-auto order-1 relative">
           <ShadowScene 
             lightSize={lightSize[0]} 
             objectDistance={objectDistance[0]} 
@@ -235,7 +233,7 @@ export default function App() {
         </section>
 
         {/* Controls Panel */}
-        <section className="w-full lg:w-96 order-1 lg:order-2 flex flex-col gap-6">
+        <section className="w-full md:w-80 lg:w-96 landscape:w-80 order-2 flex flex-col gap-4 sm:gap-6 overflow-y-auto landscape:max-h-full">
           
           {/* Information Card */}
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden">
