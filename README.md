@@ -1,20 +1,28 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# مختبر الظل وشبه الظل (Shadow and Penumbra Laboratory)
 
-# Run and deploy your AI Studio app
+مشروع تفاعلي تعليمي يهدف إلى شرح ظاهرة تكون الظل وشبه الظل بطريقة بصرية وتفاعلية. يتيح المختبر للمستخدمين التحكم في حجم مصدر الضوء ومسافة الجسم لملاحظة التغيرات في الظلال الناتجة.
 
-This contains everything you need to run your app locally.
+## المميزات (Features)
+- **محاكاة ثلاثية الأبعاد:** عرض حي لتكون الظلال باستخدام تقنيات الويب الحديثة.
+- **تحكم تفاعلي:** تغيير حجم مصدر الضوء (من نقطي إلى واسع) وتغيير مكان الجسم.
+- **محتوى تعليمي:** شرح مبسط لكل حالة من حالات الظل.
+- **اختبار تفاعلي:** اختبار سريع لمدى فهم المستخدم للمفاهيم التعليمية.
+- **متوافق مع Storyline 360:** إمكانية التكامل مع مشاريع Articulate Storyline.
 
-View your app in AI Studio: https://ai.studio/apps/9d28ac91-fba9-4cf2-876c-efa078c6be82
+## التشغيل محلياً (Run Locally)
 
-## Run Locally
+1. تثبيت الاعتماديات:
+   ```bash
+   npm install
+   ```
 
-**Prerequisites:**  Node.js
+2. تشغيل المشروع:
+   ```bash
+   npm run dev
+   ```
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## التقنيات المستخدمة (Tech Stack)
+- React
+- Three.js / React Three Fiber
+- Tailwind CSS
+- Lucide React (الأيقونات)
